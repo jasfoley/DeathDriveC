@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/DeathDrive/Park.unity
+  isLoaded: 1
+  isActive: 1
