@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public int startingHealth = 100;
     public int currentHealth;
-    public int scoreValue = 10;
+    public int countValue = 1;
     public AudioClip deathClip;
 
 
@@ -60,7 +60,7 @@ public class EnemyHealth : MonoBehaviour
         enemyMovement.enabled = false;
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
         Destroy(gameObject, 2f);
-        //ScoreManager.score += scoreValue;
+        KillCount.count += countValue;
     }
 
 }
