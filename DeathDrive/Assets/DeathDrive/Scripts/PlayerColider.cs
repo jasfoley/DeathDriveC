@@ -13,25 +13,19 @@ public class PlayerColider : MonoBehaviour {
     Animator anim;
     AudioSource enemyAudio;
     GameObject enemy;
-    EnemyHealth enemyHealth;
     EnemyMovement enemyMovement;
     
 
     void Awake()
     {
-        //enemy = GameObject.FindGameObjectWithTag("Enemy");
-        enemyHealth = enemy.GetComponent<EnemyHealth>();
         enemyAudio = GetComponent<AudioSource>();
         enemyMovement = GetComponent<EnemyMovement>();
         anim = GetComponent<Animator>();
     }
 
     void OnTriggerEnter(Collider other){
-        if (other.tag == "Enemy")
+        if (other.tag == "Player")
         {
-            if (enemyHealth.currentHealth > 0)
-            {
-                enemyHealth.TakeDamage(attackDamage);
                 anim.SetTrigger("Dead");
            
                 enemyAudio.clip = deathClip;
@@ -41,7 +35,7 @@ public class PlayerColider : MonoBehaviour {
                 GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
                 Destroy(gameObject, 2f);
                 KillCount.count += countValue;
-            }
+            
         }
 
 
